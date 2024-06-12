@@ -4,22 +4,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
   aspectRatioOptions,
   defaultValues,
   transformationTypes,
 } from "@/constants";
-import { title } from "process";
 import { CustomField } from "./CustomField";
 import {
   Select,
@@ -29,6 +20,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
+import MediaUploader from "./MediaUploader";
+import image from "next/image";
 
 export const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -214,6 +207,23 @@ const TransformationForm = ({
             )}
           </div>
         )}
+
+        <div className="media-uploader-field">
+          <CustomField
+            control={form.control}
+            name="publicId"
+            className="flex size-full flex-col"
+            render={({ field }) => (
+              <MediaUploader
+                onValueChange={field.onChange}
+                setImage={setImage}
+                publicId={field.value}
+                image={image}
+                type={type}
+              />
+            )}
+          ></CustomField>
+        </div>
         <div className="flex flex-col gap-4">
           <Button
             type="button"
