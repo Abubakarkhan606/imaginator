@@ -19,7 +19,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 const isPublicRoute = createRouteMatcher([
   "/api/webhooks/clerk",
-  "/api/webhooks/stripe]",
+  "/api/webhooks/stripe",
   "/",
 ]);
 
@@ -34,6 +34,6 @@ export const config = {
     "/((?!.*\\..*|_next).*)",
     "/",
     "/(api|trpc)(.*)",
-    "/((?!.*\\..*|_next|api/webhooks).*)",
+    // "/((?!.*\\..*|_next|api/webhooks).*)",
   ],
 };
