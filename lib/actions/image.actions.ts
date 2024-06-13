@@ -78,7 +78,7 @@ export async function deleteImage(imageId: string) {
 }
 
 // GET IMAGE
-export async function getImage(imageId: string) {
+export async function getImageById(imageId: string) {
   try {
     await connectToDatabase();
 
