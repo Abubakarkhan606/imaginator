@@ -1,10 +1,11 @@
 import { Document, Schema, model, models } from "mongoose";
+import { string } from "zod";
 
 export interface IImage extends Document {
   title: string;
   transformationType: string;
   publicId: string;
-  screenUrl: string;
+  screenURL: string;
   width?: number;
   height?: number;
   config?: object;
@@ -25,11 +26,11 @@ const ImageSchema = new Schema({
   title: { type: String, required: true },
   transformationType: { type: String, required: true },
   publicId: { type: String, required: true },
-  secureUrl: { type: URL, required: true },
+  secureURL: { type: String, required: true },
   width: { type: Number },
   height: { type: Number },
   config: { type: Object },
-  tranformationUrl: { type: URL },
+  tranformationUrl: { type: String },
   aspectRatio: { type: String },
   color: { type: String },
   prompt: { type: String },
@@ -38,6 +39,6 @@ const ImageSchema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-const Image = models?.Image || model("Image", ImageSchema);
+const IImage = models?.Image || model("Image", ImageSchema);
 
-export default Image;
+export default IImage;

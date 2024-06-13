@@ -183,6 +183,7 @@ export const aspectRatioOptions = {
 };
 
 export const defaultValues = {
+  username: "",
   title: "",
   aspectRatio: "",
   color: "",
