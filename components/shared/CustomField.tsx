@@ -11,6 +11,7 @@ import {
 } from "../ui/form";
 
 import { formSchema } from "./TransformationForm";
+import { Input } from "../ui/input";
 
 type CustomFieldProps = {
   control: Control<z.infer<typeof formSchema>> | undefined;
@@ -34,7 +35,10 @@ export const CustomField = ({
       render={({ field }) => (
         <FormItem className={className}>
           {formLabel && <FormLabel>{formLabel}</FormLabel>}
-          <FormControl>{render({ field })}</FormControl>
+          <FormControl>
+            {/* <Input type="text" placeholder="shadcn" {...field} /> */}
+            {render({ field })}
+          </FormControl>
           <FormMessage />
         </FormItem>
       )}

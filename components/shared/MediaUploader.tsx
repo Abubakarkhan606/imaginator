@@ -26,10 +26,10 @@ const MediaUploader = ({
   const onUploadSuccessHandler = (result: any) => {
     setImage((prevState: any) => ({
       ...prevState,
-      publicId: result?.public_id,
+      publicId: result?.info?.public_id,
       width: result?.info?.width,
       height: result?.info?.height,
-      secureUrl: result?.info?.secure_url,
+      secureURL: result?.info?.secure_url,
     }));
     onValueChange(result?.info?.public_id);
 
@@ -72,7 +72,7 @@ const MediaUploader = ({
                   sizes={"(max-width: 767px) 100vw, 50vw"}
                   placeholder={dataUrl as PlaceholderValue}
                   className="media-uploader_cldimage"
-                ></CldImage>
+                />
               </div>
             </>
           ) : (
