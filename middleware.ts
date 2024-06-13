@@ -34,6 +34,6 @@ export const config = {
     "/((?!.*\\..*|_next).*)",
     "/",
     "/(api|trpc)(.*)",
-    "/((?!.*\\..*|_next|api/webhooks(.*)).*)",
+    "/((?!.*\\..*|_next|api/webhooks).*)",
   ],
 };
